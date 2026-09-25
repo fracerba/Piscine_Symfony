@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Form</title>
+	<script src="popup.js"></script>
+</head>
+<body>
+	<h1>Fill Out the Form</h1>
+	<form>
+		<label for="name">First Name : </label>
+		<input type="text" id="firstname" name="name" required placeholder="Saul"><br><br>
+
+		<label for="name">Name : </label>
+		<input type="text" id="name" name="name" required placeholder="Goodman"><br><br>
+
+		<label for="age">Age : </label>
+		<input type="number" id="age" name="age" min="0" max="120" required placeholder="42"><br><br>
+
+		<label for="phone">Phone : </label>
+		<input type="tel" id="phone" name="phone" required placeholder="+1 (505) 503-4455"><br><br>
+
+		<label for="email">Email : </label>
+		<input type="email" id="email" name="email" required placeholder="saulgoodman@yahoo.com"><br><br>
+
+		<label for="student"> Student at 42 ? : </label>
+		<input type="checkbox" id="student" name="student" value="no" required><br><br>
+
+		<label>
+			<input type="radio" id="gender_male" name="gender" value="Male" checked required>Male
+		</label>
+		<label>
+			<input type="radio" id="gender_female" name="gender" value="Female" required>Female
+		</label>
+		<label>
+			<input type="radio" id="gender_other" name="gender" value="Other" required>Other
+		</label><br><br>
+
+		<input type="submit" value="Run that sexy Javascript !" onclick="displayFormContents()">
+	</form>
+</body>
+</html>
