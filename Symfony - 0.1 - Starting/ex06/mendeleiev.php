@@ -24,15 +24,16 @@ $file = "<!DOCTYPE html>
 			border-collapse: collapse;
 			table-layout: fixed; 
 			width: 100%;
-			max-width: 2520px;
+			max-width: 2160px;
 			margin: 0 auto; 
 		}
 		td {
-			box-sizing: border-box; 
+			box-sizing: border-box;
+			vertical-align: top;
 		}
 		td:not([colspan]) {
-			width: 140px;
-			height: 140px;
+			width: 120px;
+			height: 120px;
 			border: 1px solid black;
 			text-align: left;
 			padding: 10px;
@@ -41,8 +42,8 @@ $file = "<!DOCTYPE html>
 			word-wrap: break-word;
 		}
 		h4 {
-			margin: 0 0 5px 0;
-			font-size: 14px;
+			margin: 3px 0 5px 0;
+			font-size: 12px;
 		}
 		ul {
 			margin: 0;
@@ -50,7 +51,7 @@ $file = "<!DOCTYPE html>
 		}
 		li {
 			list-style-type: none;
-			font-size: 12px;
+			font-size: 11px;
 			line-height: 1.3;
 		}
 		.alkali-metals { background-color: #ff6666; }
