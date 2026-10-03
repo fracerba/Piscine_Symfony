@@ -19,4 +19,3 @@ function capital_city_from (string $state) : string {
 		$capital = $capitals[$postal_code] ?? "Unknown";
 	return "$capital\n";
 }
-?>

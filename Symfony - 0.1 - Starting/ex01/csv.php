@@ -11,4 +11,3 @@ $array = explode(',', trim($file));
 
 foreach ($array as $a)
 	echo "$a\n";
-?>

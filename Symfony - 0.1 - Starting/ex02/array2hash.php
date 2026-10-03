@@ -8,4 +8,3 @@ function array2hash(array $array) : array {
 
 	return $hash;
 }
-?>

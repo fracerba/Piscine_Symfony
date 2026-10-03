@@ -14,29 +14,23 @@ function search_by_states (string $words) : array {
 	];
 
 	$array = explode(",", $words);
+	$err_msg = ' is neither a capital nor a state.';
 	foreach ($array as &$a){
 		$a = trim($a);
 		$postal_code = $states[$a] ?? null;
 		if ($postal_code) {
 			$capital = $capitals[$postal_code] ?? null;
-			if ($capital)
-				$a = "$capital is the capital of $a";
-			else
-				$a = "$a is neither a capital nor a state.";
+			$a = $capital ? "$capital is the capital of $a" : "$a$err_msg";
 		}
 		else {
 			$postal_code = array_search($a, $capitals, true);
 			if ($postal_code){
 				$state = array_search($postal_code, $states, true);
-				if ($state)
-					$a = "$a is the capital of $state";
-				else
-					$a = "$a is neither a capital nor a state.";
+				$a = $state ? "$a is the capital of $state" : "$a$err_msg";
 			}
 			else
-				$a = "$a is neither a capital nor a state.";
+				$a .= $err_msg;
 		}
 	}
 	return $array;
 }
-?>
