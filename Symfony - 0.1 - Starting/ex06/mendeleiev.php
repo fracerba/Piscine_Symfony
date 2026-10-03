@@ -14,50 +14,55 @@ $file = "<!DOCTYPE html>
 	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
 	<title>Periodic Table</title>
 	<style>
+		body {
+			margin: 0;
+			padding: 50px;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			min-width: max-content; 
+		}
 		table { 
 			border-collapse: collapse;
+			table-layout: fixed; 
+			width: 100%;
+			max-width: 2520px;
+			margin: 0 auto; 
+		}
+		td {
+			box-sizing: border-box; 
 		}
 		td:not([colspan]) {
-			width: 100px;
-			height: 100px;
+			width: 140px;
+			height: 140px;
 			border: 1px solid black;
 			text-align: left;
 			padding: 10px;
+			box-sizing: border-box;
+			overflow: hidden; 
+			word-wrap: break-word;
+		}
+		h4 {
+			margin: 0 0 5px 0;
+			font-size: 14px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
 		}
 		li {
-			float: left;
 			list-style-type: none;
+			font-size: 12px;
+			line-height: 1.3;
 		}
-		.alkali-metals {
-			background-color: #ff6666;
-		}
-		.alkaline-earth-metals {
-			background-color: #ffdead;
-		}
-		.lanthanoids {
-			background-color: #ffbfff;
-		}
-		.actinoids {
-			background-color: #ff99cc;
-		}
-		.transition-metals {
-			background-color: #ffc0c0;
-		}
-		.post-transition-metals {
-			background-color: #cccccc;
-		}
-		.metalloids {
-			background-color: #cccc99;
-		}
-		.nonmetals {
-			background-color: #a0ffa0;
-		}
-		.halogens {
-			background-color: #ffff99;
-		}
-		.noble-gases {
-			background-color: #c0ffff;
-		}
+		.alkali-metals { background-color: #ff6666; }
+		.alkaline-earth-metals { background-color: #ffdead; }
+		.lanthanoids { background-color: #ffbfff; }
+		.actinoids { background-color: #ff99cc; }
+		.transition-metals { background-color: #ffc0c0; }
+		.post-transition-metals { background-color: #cccccc; }
+		.metalloids { background-color: #cccc99; }
+		.nonmetals { background-color: #a0ffa0; }
+		.halogens { background-color: #ffff99; }
+		.noble-gases { background-color: #c0ffff; }
 	</style>
 </head>
 <body>
@@ -136,4 +141,6 @@ $file .= "	</table>
 </body>
 </html>";
 
-file_put_contents('mendeleiev.html', $file);
+$output_file = 'mendeleiev.html';
+file_put_contents($output_file, $file);
+echo "HTML file '$output_file' created successfully.\n";
