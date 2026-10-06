@@ -18,7 +18,12 @@ $file = "<!DOCTYPE html>
 			margin: 0;
 			padding: 50px;
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
-			min-width: max-content; 
+			min-width: max-content;
+			min-height: 100vh;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 		table { 
 			border-collapse: collapse;
@@ -143,5 +148,5 @@ $file .= "	</table>
 </html>";
 
 $output_file = 'mendeleiev.html';
-file_put_contents($output_file, $file);
-echo "HTML file '$output_file' created successfully.\n";
+if (file_put_contents($output_file, $file))
+	echo "HTML file '$output_file' created successfully.\n";
