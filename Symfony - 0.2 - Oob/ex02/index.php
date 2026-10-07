@@ -5,7 +5,7 @@ include 'Tea.php';
 include 'TemplateEngine.php';
 
 $coffee = new Coffee();
-$tea = new Tea('AAAA', 'BBBB');
+$tea = new Tea();
 $engine = new TemplateEngine;
 
 $engine->createFile($coffee);
