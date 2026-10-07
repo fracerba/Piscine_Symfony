@@ -13,9 +13,9 @@ function capital_city_from (string $state) : string {
 		'KS' => 'Topeka',
 	];
 
-	$capital = "Unknown";
+	$capital = 'Unknown';
 	$postal_code = $states[$state] ?? null;
 	if ($postal_code)
-		$capital = $capitals[$postal_code] ?? "Unknown";
+		$capital = $capitals[$postal_code] ?? 'Unknown';
 	return "$capital\n";
 }

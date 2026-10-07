@@ -13,20 +13,20 @@ function search_by_states (string $words) : array {
 		'KS' => 'Topeka',
 	];
 
-	$array = explode(",", $words);
+	$array = explode(',', trim($words));
 	$err_msg = ' is neither a capital nor a state.';
 	foreach ($array as &$a){
 		$a = trim($a);
 		$postal_code = $states[$a] ?? null;
 		if ($postal_code) {
 			$capital = $capitals[$postal_code] ?? null;
-			$a = $capital ? "$capital is the capital of $a" : "$a$err_msg";
+			$a = $capital ? "$capital is the capital of $a." : "$a$err_msg";
 		}
 		else {
 			$postal_code = array_search($a, $capitals, true);
 			if ($postal_code){
 				$state = array_search($postal_code, $states, true);
-				$a = $state ? "$a is the capital of $state" : "$a$err_msg";
+				$a = $state ? "$a is the capital of $state." : "$a$err_msg";
 			}
 			else
 				$a .= $err_msg;

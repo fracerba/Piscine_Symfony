@@ -6,8 +6,17 @@ if (!is_file($filename)) {
 	exit(1);
 }
 
-$file = file_get_contents($filename);
-$array = explode(',', trim($file));
+if (!is_readable($filename)) {
+	echo "File not readable: $filename\n";
+	exit(1);
+}
 
+$file = file_get_contents($filename);
+if ($file === false) {
+	echo "Failed to retrieve file contents: $filename\n";
+	exit(1);
+}
+
+$array = explode(',', trim($file));
 foreach ($array as $a)
-	echo "$a\n";
+	echo trim($a) . "\n";

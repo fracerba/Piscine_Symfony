@@ -6,7 +6,18 @@ if (!is_file($filename)) {
 	exit(1);
 }
 
-$table = explode("\n", file_get_contents($filename));
+if (!is_readable($filename)) {
+	echo "File not readable: $filename\n";
+	exit(1);
+}
+
+$contents = file_get_contents($filename);
+if ($contents === false) {
+	echo "Failed to retrieve file contents: $filename\n";
+	exit(1);
+}
+
+$table = explode("\n", $contents);
 $file = "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -77,7 +88,7 @@ $file = "<!DOCTYPE html>
 $last_group = 20;
 
 foreach ($table as $line) {
-	$data = explode(",", trim($line));
+	$data = explode(',', trim($line));
 	if (count($data) !== 5)
 		continue;
 
@@ -150,3 +161,5 @@ $file .= "	</table>
 $output_file = 'mendeleiev.html';
 if (file_put_contents($output_file, $file))
 	echo "HTML file '$output_file' created successfully.\n";
+else
+	echo "Failed to create file '$output_file'.\n";
