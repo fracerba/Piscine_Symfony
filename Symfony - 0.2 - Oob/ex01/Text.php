@@ -13,7 +13,7 @@ class Text {
 	public function readData() {
 		$data = '';
 		foreach ($this->text as $t)
-			$data .= "<p>" . htmlspecialchars($t, ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8') . "</p>\n";
+			$data .= "<p>" . htmlspecialchars($t, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8') . "</p>\n";
 
 		return $data;
 	}

@@ -4,12 +4,18 @@ class TemplateEngine {
 		$templateName = 'template.html';
 
 		if (!is_file($templateName)) {
-			echo "Template file '$templateName' not found.";
+			echo "Template file '$templateName' not found.\n";
 			return;
 		}
 
 		if (!is_readable($templateName)) {
-			echo "Template file '$templateName' is not readable.";
+			echo "Template file '$templateName' is not readable.\n";
+			return;
+		}
+
+		$file = file_get_contents($templateName);
+		if ($file === false) {
+			echo "Failed to retrieve file contents from template: $templateName\n";
 			return;
 		}
 
@@ -22,7 +28,6 @@ class TemplateEngine {
 			'comment' => 'comment',
 		];
 
-		$file = file_get_contents($templateName);
 		foreach ($parameters as $k => $v) {
 			$method = $reflector->getMethod('get' . ucfirst($v));
 			$file = str_replace("{{$k}}", $method->invoke($text), $file);
@@ -32,6 +37,6 @@ class TemplateEngine {
 		if (file_put_contents($fileName, $file))
 			echo "HTML file '$fileName' created successfully.\n";
 		else
-			echo "Error";
+			echo "Failed to create file '$fileName'.\n";
 	}
 }
